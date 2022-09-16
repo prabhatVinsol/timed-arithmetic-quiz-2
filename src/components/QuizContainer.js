@@ -2,11 +2,12 @@ import React from 'react';
 import Quiz from './Quiz';
 import QuizDetail from './QuizDetail';
 
-function QuizContainer() {
+function QuizContainer(props) {
+  const { quiz } = props;
   return (
     <div className="QuizContainer">
-      <QuizDetail />
-      <Quiz />
+      <QuizDetail quiz={quiz} />
+      <Quiz quiz={quiz} />
     </div>
   );
 }
