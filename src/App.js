@@ -1,9 +1,10 @@
+import QuizContainer from './components/QuizContainer';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Quiz-2
+      <QuizContainer />
     </div>
   );
 }
