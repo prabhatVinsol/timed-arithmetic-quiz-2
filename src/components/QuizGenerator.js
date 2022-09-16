@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import QuizContainer from './QuizContainer';
 import QuizGeneratorForm from './QuizGeneratorForm';
 
 function QuizGenerator() {
@@ -10,6 +11,12 @@ function QuizGenerator() {
   return (
     <div className="QuizGenerator">
       <QuizGeneratorForm updateQuizs={updateQuizs} />
+      <div className="QuizDiv">
+        <QuizContainer />
+        <QuizContainer />
+        <QuizContainer />
+        <QuizContainer />
+      </div>
     </div>
   );
 }
