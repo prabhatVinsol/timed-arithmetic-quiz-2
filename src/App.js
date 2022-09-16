@@ -1,10 +1,10 @@
-import QuizContainer from './components/QuizContainer';
 import './App.css';
+import QuizGenerator from './components/QuizGenerator';
 
 function App() {
   return (
     <div className="App">
-      <QuizContainer />
+      <QuizGenerator />
     </div>
   );
 }

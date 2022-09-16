@@ -1,0 +1,126 @@
+import React, { useState } from 'react';
+import '../stylesheet/Quiz.css';
+
+function QuizGeneratorForm(props) {
+  const { updateQuizs } = props;
+  const [minLimit, setMinLimit] = useState('');
+  const [maxLimit, setMaxLimit] = useState('');
+  const [noOfQuestions, setNoOfQuestions] = useState('');
+  const [timer, setTimer] = useState('');
+  const [operators, updateOprator] = useState([]);
+
+  const minLimitChangeHandler = (e) => {
+    setMinLimit(e.target.value);
+  };
+  const maxLimitHandler = (e) => {
+    setMaxLimit(e.target.value);
+  };
+  const noQuestionHandler = (e) => {
+    setNoOfQuestions(e.target.value);
+  };
+  const timerHandler = (e) => {
+    setTimer(e.target.value);
+  };
+  const operationSelectionHandler = (e) => {
+    const operatorIndex = operators.indexOf(e.target.defaultValue);
+    if (operatorIndex >= 0) {
+      updateOprator(operators.filter((operator) => operator !== e.target.defaultValue));
+    } else {
+      updateOprator([...operators, e.target.defaultValue]);
+    }
+  };
+  const onSubmitTapped = () => {
+    console.log('Min limit', Number(minLimit) > 0);
+    if ((minLimit === '') || (minLimit < 1)) {
+      alert('Please provide correct min limit.');
+    } else if ((maxLimit === '') || (maxLimit < 1)) {
+      alert('Please provide correct max limit.');
+    } else if ((noOfQuestions === '') || (noOfQuestions < 1)) {
+      alert('Please provide correct no of questions.');
+    } else if ((timer === '') || (timer < 1)) {
+      alert('Please provide correct timer.');
+    } else if (operators.length === 0) {
+      alert('Please select atleast one operator.');
+    }
+    const quiz = {
+      minLimit,
+      maxLimit,
+      noOfQuestions,
+      timer,
+      operators,
+    };
+    updateQuizs(quiz);
+  };
+  return (
+    <div className="QuizGeneratorForm">
+      <h2>Quiz Generation</h2>
+      <div className="QGFTop">
+        <div>
+          <div className="QZInput">
+            Min Limit
+            <input
+              type="number"
+              className="Input"
+              value={minLimit}
+              onChange={minLimitChangeHandler}
+            />
+          </div>
+          <div className="QZInput">
+            No of Questions
+            <input
+              type="number"
+              className="Input"
+              value={noOfQuestions}
+              onChange={noQuestionHandler}
+            />
+          </div>
+        </div>
+        <div>
+          <div className="QZInput">
+            Max Limit
+            <input
+              type="number"
+              className="Input"
+              value={maxLimit}
+              onChange={maxLimitHandler}
+            />
+          </div>
+          <div className="QZInput">
+            Timer
+            <input
+              type="number"
+              className="Input"
+              value={timer}
+              onChange={timerHandler}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="QGFMid">
+        Operations:
+        <div className="QGFODiv">
+          <div>
+            +
+            <input type="checkbox" id="Operations" name="Operations" value="+" onChange={operationSelectionHandler} />
+          </div>
+          <div>
+            -
+            <input type="checkbox" id="Operations" name="Operations" value="-" onChange={operationSelectionHandler} />
+          </div>
+          <div>
+            *
+            <input type="checkbox" id="Operations" name="Operations" value="*" onChange={operationSelectionHandler} />
+          </div>
+          <div>
+            /
+            <input type="checkbox" id="Operations" name="Operations" value="/" onChange={operationSelectionHandler} />
+          </div>
+        </div>
+
+      </div>
+      <button className="Submit" type="button" value="Submit" onClick={onSubmitTapped}>Submit</button>
+    </div>
+  );
+}
+
+export default QuizGeneratorForm;

@@ -51,3 +51,48 @@
     border: 2px solid;
     border-color: rgb(202, 201, 201);
 }
+.QuizGeneratorForm{
+    width: 50%;
+    height: 320px;
+}
+.QGFTop{
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    text-align: center;
+}
+.QGFMid{
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    grid-gap: 10px;
+}
+.QuizGenerator{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+.Submit{
+    border: 0px;
+    background-color: skyblue;
+    border-radius: 2px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+.QZInput{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 40%;
+    text-align: center;
+}
+.QGFODiv{
+    text-align: center;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+    
+}
