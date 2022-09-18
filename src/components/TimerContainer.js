@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { publish, subscribe } from './Event';
 
 function TimerContainer(props) {
-  const { questionNum } = props;
-  const [count, setCount] = useState(20);
+  const { questionNum, quiz } = props;
+  const [count, setCount] = useState(Number(quiz.timerVal));
 
   const updateCount = () => {
     if (count > 1) {
       setCount((prevState) => prevState - 1);
-    } else if (questionNum === 20) {
+    } else if (questionNum === quiz.noOfQuestions) {
       setCount(0);
       publish('NextQuestion');
     } else {

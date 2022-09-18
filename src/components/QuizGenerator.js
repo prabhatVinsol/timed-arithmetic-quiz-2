@@ -12,7 +12,7 @@ function QuizGenerator() {
     <div className="QuizGenerator">
       <QuizGeneratorForm updateQuizs={updateQuizs} />
       <div className="QuizDiv">
-        {quizes.map((quizVal) => <QuizContainer key={Date.now()} quiz={quizVal} />)}
+        {quizes.map((quiz) => <QuizContainer key={Date.now()} quiz={quiz} />)}
       </div>
     </div>
   );

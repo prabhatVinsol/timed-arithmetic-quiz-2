@@ -1,12 +1,16 @@
 /* eslint no-eval: 0 */
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*', '/'];
-  const opIndex = Math.floor(Math.random() * 4);
-  return operators[opIndex];
+const getRandomOperator = (quiz) => {
+  const opIndex = Math.floor(Math.random() * quiz.operatorsVal.length);
+  return quiz.operatorsVal[opIndex];
 };
-const getRandomNumber = () => Math.floor(Math.random() * 20);
-const getQuestion = (number) => {
-  const questionVal = `${getRandomNumber()} ${getRandomOperator()} ${getRandomNumber()}`;
+const getRandomNumber = (quiz) => {
+  const minVal = Number(quiz.minLimitVal);
+  const maxVal = Number(quiz.maxLimitVal);
+  const range = maxVal - minVal;
+  return (minVal + Math.floor(Math.random() * range) + 1);
+};
+const getQuestion = (number, quiz) => {
+  const questionVal = `${getRandomNumber(quiz)} ${getRandomOperator(quiz)} ${getRandomNumber(quiz)}`;
   const evaluate = eval(questionVal);
   return {
     question: questionVal,

@@ -5,29 +5,33 @@ import QuestionAnswer from './QuestionAnswer';
 import Score from './Score';
 import TimerContainer from './TimerContainer';
 
-function Quiz() {
+function Quiz(props) {
+  const { quiz } = props;
   const [questionNumber, setQuestionNumber] = useState(1);
   const [questions, setQuestions] = useState([]);
   const nextQuestion = (question) => {
-    if (questionNumber < 21) {
+    console.log('Hey this is next question with previous question number:', questionNumber);
+    if (questionNumber < (Number(quiz.noOfQuestionsVal) + 1)) {
       setQuestions([...questions, question]);
-      publish('ResetInterval', 20);
+      publish('ResetInterval', quiz.timerVal);
       setQuestionNumber(questionNumber + 1);
+      console.log('Hey this is next question with current question number:', questionNumber);
     }
   };
-  const shouldShowQuiz = questionNumber < 21;
+  const shouldShowQuiz = questionNumber < (Number(quiz.noOfQuestionsVal) + 1);
   return (
     <div>
       {shouldShowQuiz && (
         <TimerContainer
           questionNum={questionNumber}
-          nextQuestion={nextQuestion}
+          quiz={quiz}
         />
       )}
       {shouldShowQuiz && (
         <QuestionAnswer
           questionNum={questionNumber}
           nextQuestion={nextQuestion}
+          quiz={quiz}
         />
       )}
       <Score answers={questions} />

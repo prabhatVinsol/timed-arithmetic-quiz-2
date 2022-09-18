@@ -30,7 +30,6 @@ function QuizGeneratorForm(props) {
     }
   };
   const onSubmitTapped = () => {
-    console.log('Min limit', Number(minLimit) > 0);
     if ((minLimit === '') || (minLimit < 1)) {
       alert('Please provide correct min limit.');
     } else if ((maxLimit === '') || (maxLimit < 1)) {
@@ -43,13 +42,18 @@ function QuizGeneratorForm(props) {
       alert('Please select atleast one operator.');
     }
     const quiz = {
-      minLimit,
-      maxLimit,
-      noOfQuestions,
-      timer,
-      operators,
+      minLimitVal: minLimit,
+      maxLimitVal: maxLimit,
+      noOfQuestionsVal: noOfQuestions,
+      timerVal: timer,
+      operatorsVal: operators,
     };
     updateQuizs(quiz);
+    setMinLimit('');
+    setMaxLimit('');
+    setNoOfQuestions('');
+    setTimer('');
+    updateOprator([]);
   };
   return (
     <div className="QuizGeneratorForm">
