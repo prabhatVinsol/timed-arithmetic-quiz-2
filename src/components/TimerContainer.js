@@ -10,14 +10,14 @@ function TimerContainer(props) {
       setCount((prevState) => prevState - 1);
     } else if (questionNum === quiz.noOfQuestions) {
       setCount(0);
-      publish('NextQuestion');
+      publish(`NextQuestion${quiz.quizId}`);
     } else {
-      publish('NextQuestion');
+      publish(`NextQuestion${quiz.quizId}`);
     }
   };
   useEffect(() => {
     const timer = setInterval(updateCount, 1000);
-    subscribe('ResetInterval', (data) => {
+    subscribe(`ResetInterval${quiz.quizId}`, (data) => {
       setCount(data.detail);
     });
     return () => clearInterval(timer);

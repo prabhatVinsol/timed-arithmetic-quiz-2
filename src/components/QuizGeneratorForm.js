@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../stylesheet/Quiz.css';
 
 function QuizGeneratorForm(props) {
-  const { updateQuizs } = props;
+  const { updateQuizs, currentQuizesCount } = props;
   const [minLimit, setMinLimit] = useState('');
   const [maxLimit, setMaxLimit] = useState('');
   const [noOfQuestions, setNoOfQuestions] = useState('');
@@ -47,6 +47,7 @@ function QuizGeneratorForm(props) {
       noOfQuestionsVal: noOfQuestions,
       timerVal: timer,
       operatorsVal: operators,
+      quizId: currentQuizesCount + 1,
     };
     updateQuizs(quiz);
     setMinLimit('');

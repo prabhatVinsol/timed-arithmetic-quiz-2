@@ -8,7 +8,7 @@ function QuestionAnswer(props) {
   const [questionObj, setQuestion] = useState(getQuestion(questionNum, quiz));
   const [inputVal, setInputVal] = useState('');
   useEffect(() => {
-    subscribe('NextQuestion', () => {
+    subscribe(`NextQuestion${quiz.quizId}`, () => {
       nextQuestion(questionObj);
       setQuestion(getQuestion(questionNum + 1, quiz));
       setInputVal('');

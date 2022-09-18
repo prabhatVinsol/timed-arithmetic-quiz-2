@@ -13,7 +13,7 @@ function Quiz(props) {
     console.log('Hey this is next question with previous question number:', questionNumber);
     if (questionNumber < (Number(quiz.noOfQuestionsVal) + 1)) {
       setQuestions([...questions, question]);
-      publish('ResetInterval', quiz.timerVal);
+      publish(`ResetInterval${quiz.quizId}`, quiz.timerVal);
       setQuestionNumber(questionNumber + 1);
       console.log('Hey this is next question with current question number:', questionNumber);
     }
