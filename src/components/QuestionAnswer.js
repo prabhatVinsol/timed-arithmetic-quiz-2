@@ -4,7 +4,6 @@ import { getQuestion } from './Helper';
 
 function QuestionAnswer(props) {
   const { questionNum, nextQuestion, quiz } = props;
-  console.log('quiz Question answer', quiz);
   const [questionObj, setQuestion] = useState(getQuestion(questionNum, quiz));
   const [inputVal, setInputVal] = useState('');
   useEffect(() => {
