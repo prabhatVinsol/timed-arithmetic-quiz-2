@@ -56,6 +56,10 @@ function QuizGeneratorForm(props) {
     setTimer('');
     updateOprator([]);
   };
+  const plusChecked = operators.indexOf('+') >= 0;
+  const minusChecked = operators.indexOf('-') >= 0;
+  const multiplyChecked = operators.indexOf('*') >= 0;
+  const devideChecked = operators.indexOf('/') >= 0;
   return (
     <div className="QuizGeneratorForm">
       <h2>Quiz Generation</h2>
@@ -106,19 +110,47 @@ function QuizGeneratorForm(props) {
         <div className="QGFODiv">
           <div>
             +
-            <input type="checkbox" id="Operations" name="Operations" value="+" onChange={operationSelectionHandler} />
+            <input
+              type="checkbox"
+              id="Operations"
+              name="Operations"
+              value="+"
+              onChange={operationSelectionHandler}
+              checked={plusChecked}
+            />
           </div>
           <div>
             -
-            <input type="checkbox" id="Operations" name="Operations" value="-" onChange={operationSelectionHandler} />
+            <input
+              type="checkbox"
+              id="Operations"
+              name="Operations"
+              value="-"
+              onChange={operationSelectionHandler}
+              checked={minusChecked}
+            />
           </div>
           <div>
             *
-            <input type="checkbox" id="Operations" name="Operations" value="*" onChange={operationSelectionHandler} />
+            <input
+              type="checkbox"
+              id="Operations"
+              name="Operations"
+              value="*"
+              onChange={operationSelectionHandler}
+              checked={multiplyChecked}
+            />
           </div>
           <div>
             /
-            <input type="checkbox" id="Operations" name="Operations" value="/" onChange={operationSelectionHandler} />
+            <input
+              type="checkbox"
+              id="Operations"
+              name="Operations"
+              value="/"
+              onChange={operationSelectionHandler}
+              checked={devideChecked}
+            />
           </div>
         </div>
 
