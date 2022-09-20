@@ -6,8 +6,11 @@ const getRandomOperator = (quiz) => {
 const getRandomNumber = (quiz) => {
   const minVal = Number(quiz.minLimitVal);
   const maxVal = Number(quiz.maxLimitVal);
-  const range = maxVal - minVal;
-  return (minVal + Math.floor(Math.random() * range) + 1);
+  const difference = maxVal - minVal + 1;
+  let rand = Math.random();
+  rand = Math.floor(rand * difference);
+  rand += minVal;
+  return (rand);
 };
 const getQuestion = (number, quiz) => {
   const questionVal = `${getRandomNumber(quiz)} ${getRandomOperator(quiz)} ${getRandomNumber(quiz)}`;
