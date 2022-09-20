@@ -37,14 +37,14 @@ function Quiz(props) {
       && (
         <Answers
           answers={questions}
-          shouldShowCorrectAnswersList
+          shouldShowCorrectAnswers
         />
       )}
       {!shouldShowQuiz
       && (
         <Answers
           answers={questions}
-          shouldShowCorrectAnswersList={false}
+          shouldShowCorrectAnswers={false}
         />
       )}
     </div>

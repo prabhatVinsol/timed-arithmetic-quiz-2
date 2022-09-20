@@ -1,13 +1,14 @@
 import React from 'react';
 
 function Answers(props) {
-  const { answers, showListOfCorrectAnswers } = props;
-  const getFilteredAnswers = answers.filter((answer) => (
-    showListOfCorrectAnswers ? answer.correct : !answer.correct));
+  const { answers, shouldShowCorrectAnswers } = props;
+
+  const getCorrectOrWrongAnswerList = answers.filter((answer) => (
+    shouldShowCorrectAnswers ? answer.correct : !answer.correct));
   return (
     <div>
       <h2>
-        {showListOfCorrectAnswers ? 'Correct ' : 'Wrong '}
+        {shouldShowCorrectAnswers ? 'Correct ' : 'Wrong '}
         Answers Are
       </h2>
       <table className="Table">
@@ -20,7 +21,7 @@ function Answers(props) {
           </tr>
         </thead>
         <tbody>
-          {getFilteredAnswers.map((filteredAnswer) => (
+          {getCorrectOrWrongAnswerList.map((filteredAnswer) => (
             <tr key={filteredAnswer.id}>
               <td
                 className="TableHeaderRow"
