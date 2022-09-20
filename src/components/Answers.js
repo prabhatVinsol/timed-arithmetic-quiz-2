@@ -1,13 +1,13 @@
 import React from 'react';
 
 function Answers(props) {
-  const { answers, forCorrect } = props;
+  const { answers, showListOfCorrectAnswers } = props;
   const getFilteredAnswers = answers.filter((answer) => (
-    forCorrect ? answer.correct : !answer.correct));
+    showListOfCorrectAnswers ? answer.correct : !answer.correct));
   return (
     <div>
       <h2>
-        {forCorrect ? 'Correct ' : 'Wrong '}
+        {showListOfCorrectAnswers ? 'Correct ' : 'Wrong '}
         Answers Are
       </h2>
       <table className="Table">
