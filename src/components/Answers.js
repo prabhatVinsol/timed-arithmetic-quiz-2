@@ -4,7 +4,7 @@ function Answers(props) {
   const { answers, shouldShowCorrectAnswers } = props;
 
   const getCorrectOrWrongAnswerList = answers.filter((answer) => (
-    shouldShowCorrectAnswers ? answer.correct : !answer.correct));
+    shouldShowCorrectAnswers === answer.correct));
   return (
     <div>
       <h2>
