@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import '../stylesheet/Quiz.css';
 
 function QuizGeneratorForm(props) {
-  const { updateQuizs, currentQuizesCount } = props;
+  const { updateQuizzes, currentQuizzesCount } = props;
   const [minLimit, setMinLimit] = useState('');
   const [maxLimit, setMaxLimit] = useState('');
   const [noOfQuestions, setNoOfQuestions] = useState('');
   const [timer, setTimer] = useState('');
-  const [operators, updateOprator] = useState([]);
+  const [operators, updateOperator] = useState([]);
 
   const minLimitChangeHandler = (e) => {
     setMinLimit(e.target.value);
@@ -24,12 +24,12 @@ function QuizGeneratorForm(props) {
   const operationSelectionHandler = (e) => {
     const operatorIndex = operators.indexOf(e.target.defaultValue);
     if (operatorIndex >= 0) {
-      updateOprator(operators.filter((operator) => operator !== e.target.defaultValue));
+      updateOperator(operators.filter((operator) => operator !== e.target.defaultValue));
     } else {
-      updateOprator([...operators, e.target.defaultValue]);
+      updateOperator([...operators, e.target.defaultValue]);
     }
   };
-  const onSubmitTapped = () => {
+  const onSubmit = () => {
     if ((minLimit === '') || (minLimit < 1)) {
       alert('Please provide correct min limit.');
     } else if ((maxLimit === '') || (maxLimit < 1)) {
@@ -40,26 +40,27 @@ function QuizGeneratorForm(props) {
       alert('Please provide correct timer.');
     } else if (operators.length === 0) {
       alert('Please select atleast one operator.');
+    } else {
+      const quiz = {
+        minLimitVal: minLimit,
+        maxLimitVal: maxLimit,
+        noOfQuestionsVal: noOfQuestions,
+        timerVal: timer,
+        operatorsVal: operators,
+        quizId: currentQuizzesCount + 1,
+      };
+      updateQuizzes(quiz);
+      setMinLimit('');
+      setMaxLimit('');
+      setNoOfQuestions('');
+      setTimer('');
+      updateOperator([]);
     }
-    const quiz = {
-      minLimitVal: minLimit,
-      maxLimitVal: maxLimit,
-      noOfQuestionsVal: noOfQuestions,
-      timerVal: timer,
-      operatorsVal: operators,
-      quizId: currentQuizesCount + 1,
-    };
-    updateQuizs(quiz);
-    setMinLimit('');
-    setMaxLimit('');
-    setNoOfQuestions('');
-    setTimer('');
-    updateOprator([]);
   };
   const plusChecked = operators.indexOf('+') >= 0;
   const minusChecked = operators.indexOf('-') >= 0;
   const multiplyChecked = operators.indexOf('*') >= 0;
-  const devideChecked = operators.indexOf('/') >= 0;
+  const divideChecked = operators.indexOf('/') >= 0;
   return (
     <div className="QuizGeneratorForm">
       <h2>Quiz Generation</h2>
@@ -149,13 +150,13 @@ function QuizGeneratorForm(props) {
               name="Operations"
               value="/"
               onChange={operationSelectionHandler}
-              checked={devideChecked}
+              checked={divideChecked}
             />
           </div>
         </div>
 
       </div>
-      <button className="Submit" type="button" value="Submit" onClick={onSubmitTapped}>Submit</button>
+      <button className="Submit" type="button" value="Submit" onClick={onSubmit}>Submit</button>
     </div>
   );
 }

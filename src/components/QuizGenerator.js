@@ -3,16 +3,16 @@ import QuizContainer from './QuizContainer';
 import QuizGeneratorForm from './QuizGeneratorForm';
 
 function QuizGenerator() {
-  const [quizes, updateQuizes] = useState([]);
+  const [quizzes, _updateQuizzes] = useState([]);
 
-  const updateQuizs = (quiz) => {
-    updateQuizes([...quizes, quiz]);
+  const updateQuizzes = (quiz) => {
+    _updateQuizzes([...quizzes, quiz]);
   };
   return (
     <div className="QuizGenerator">
-      <QuizGeneratorForm updateQuizs={updateQuizs} currentQuizesCount={quizes.length} />
+      <QuizGeneratorForm updateQuizzes={updateQuizzes} currentQuizzesCount={quizzes.length} />
       <div className="QuizDiv">
-        {quizes.map((quiz) => <QuizContainer key={quiz.quizId} quiz={quiz} />)}
+        {quizzes.map((quiz) => <QuizContainer key={quiz.quizId} quiz={quiz} />)}
       </div>
     </div>
   );

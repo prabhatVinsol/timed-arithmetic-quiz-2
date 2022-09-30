@@ -7,7 +7,7 @@ function TimerContainer(props) {
 
   const updateCount = () => {
     if (count > 1) {
-      setCount((prevState) => prevState - 1);
+      setCount((lastCount) => lastCount - 1);
     } else if (questionNum === quiz.noOfQuestions) {
       setCount(0);
       publish(`NextQuestion${quiz.quizId}`);
