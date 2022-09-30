@@ -10,13 +10,13 @@ function Quiz(props) {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [questions, setQuestions] = useState([]);
   const nextQuestion = (question) => {
-    if (questionNumber < (Number(quiz.noOfQuestionsVal) + 1)) {
+    if (questionNumber < (Number(quiz.noOfQuestions) + 1)) {
       setQuestions([...questions, question]);
-      publish(`ResetInterval${quiz.quizId}`, quiz.timerVal);
+      publish(`ResetInterval${quiz.quizId}`, quiz.timer);
       setQuestionNumber(questionNumber + 1);
     }
   };
-  const shouldShowQuiz = questionNumber < (Number(quiz.noOfQuestionsVal) + 1);
+  const shouldShowQuiz = questionNumber < (Number(quiz.noOfQuestions) + 1);
   return (
     <div>
       {shouldShowQuiz && (

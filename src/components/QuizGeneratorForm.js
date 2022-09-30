@@ -42,11 +42,11 @@ function QuizGeneratorForm(props) {
       alert('Please select atleast one operator.');
     } else {
       const quiz = {
-        minLimitVal: minLimit,
-        maxLimitVal: maxLimit,
-        noOfQuestionsVal: noOfQuestions,
-        timerVal: timer,
-        operatorsVal: operators,
+        minLimit,
+        maxLimit,
+        noOfQuestions,
+        timer,
+        operators,
         quizId: currentQuizzesCount + 1,
       };
       updateQuizzes(quiz);

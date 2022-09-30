@@ -3,7 +3,7 @@ import { publish, subscribe } from './Event';
 
 function TimerContainer(props) {
   const { questionNum, quiz } = props;
-  const [count, setCount] = useState(Number(quiz.timerVal));
+  const [count, setCount] = useState(Number(quiz.timer));
 
   const updateCount = () => {
     if (count > 1) {

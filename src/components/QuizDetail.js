@@ -11,24 +11,24 @@ function QuizDetail(props) {
           <div className="QuizDetailText">
             Min Limit:
             {' '}
-            {quiz.minLimitVal}
+            {quiz.minLimit}
           </div>
           <div className="QuizDetailText">
             Timer:
             {' '}
-            {quiz.timerVal}
+            {quiz.timer}
           </div>
         </div>
         <div>
           <div className="QuizDetailText">
             Max Limit:
             {' '}
-            {quiz.maxLimitVal}
+            {quiz.maxLimit}
           </div>
           <div className="QuizDetailText">
             Question Count:
             {' '}
-            {quiz.noOfQuestionsVal}
+            {quiz.noOfQuestions}
           </div>
         </div>
       </div>
