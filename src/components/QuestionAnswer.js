@@ -4,34 +4,34 @@ import { getQuestion } from './Helper';
 
 function QuestionAnswer(props) {
   const { questionNum, nextQuestion, quiz } = props;
-  const [questionObj, setQuestion] = useState(getQuestion(questionNum, quiz));
+  const [questionInfo, setQuestion] = useState(getQuestion(questionNum, quiz));
   const [inputVal, setInputVal] = useState('');
-  useEffect(() => {
-    subscribe(`NextQuestion${quiz.quizId}`, () => {
-      nextQuestion(questionObj);
-      setQuestion(getQuestion(questionNum + 1, quiz));
-      setInputVal('');
-    });
-  });
-  const handleOnClick = () => {
-    nextQuestion(questionObj);
+
+  const loadNextQuestion = () => {
+    nextQuestion(questionInfo);
     setQuestion(getQuestion(questionNum + 1, quiz));
     setInputVal('');
   };
+
   const onChangeHandler = (e) => {
-    setQuestion((prevState) => ({
-      question: prevState.question,
-      id: prevState.id,
-      answer: prevState.answer,
+    setQuestion(() => ({
+      ...questionInfo,
       givenAnswer: e.target.value,
-      correct: Number(prevState.answer) === Number(e.target.value),
+      correct: Number(questionInfo.answer) === Number(e.target.value),
     }));
     setInputVal(e.target.value);
   };
+
+  useEffect(() => {
+    subscribe(`NextQuestion${quiz.quizId}`, () => {
+      loadNextQuestion();
+    });
+  });
+
   return (
     <div className="ArithmeticContainer">
       <div>
-        {questionObj.question}
+        {questionInfo.question}
         <input
           type="number"
           className="Input"
@@ -43,7 +43,7 @@ function QuestionAnswer(props) {
         <button
           type="button"
           className="Next"
-          onClick={handleOnClick}
+          onClick={loadNextQuestion}
         >
           Next
         </button>

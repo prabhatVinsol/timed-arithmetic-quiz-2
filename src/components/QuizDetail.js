@@ -1,5 +1,4 @@
 import React from 'react';
-import '../stylesheet/Quiz.css';
 
 function QuizDetail(props) {
   const { quiz } = props;
