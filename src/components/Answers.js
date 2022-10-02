@@ -9,35 +9,35 @@ function Answers({ answers, shouldShowCorrectAnswers = false }) {
         {shouldShowCorrectAnswers ? 'Correct ' : 'Wrong '}
         Answers Are
       </h2>
-      <table className="Table">
+      <table className="table">
         <thead>
           <tr>
-            <th className="TableHeaderRow">No</th>
-            <th className="TableHeaderRow">Question</th>
-            <th className="TableHeaderRow">Response</th>
-            <th className="TableHeaderRow">Answer</th>
+            <th className="table-header-row">No</th>
+            <th className="table-header-row">Question</th>
+            <th className="table-header-row">Response</th>
+            <th className="table-header-row">Answer</th>
           </tr>
         </thead>
         <tbody>
           {getCorrectOrWrongAnswerInfoList.map((answerInfo) => (
             <tr key={answerInfo.id}>
               <td
-                className="TableHeaderRow"
+                className="table-header-row"
               >
                 {answerInfo.id}
               </td>
               <td
-                className="TableHeaderRow"
+                className="table-header-row"
               >
                 {answerInfo.question}
               </td>
               <td
-                className="TableHeaderRow"
+                className="table-header-row"
               >
                 {answerInfo.givenAnswer || 'NA'}
               </td>
               <td
-                className="TableHeaderRow"
+                className="table-header-row"
               >
                 {answerInfo.answer}
               </td>

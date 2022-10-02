@@ -5,26 +5,26 @@ function QuizDetail(props) {
   return (
     <div>
       Details Of Quiz
-      <div className="QuizDetail">
+      <div className="quiz-detail">
         <div>
-          <div className="QuizDetailText">
+          <div className="quiz-detail-text">
             Min Limit:
             {' '}
             {quiz.minLimit}
           </div>
-          <div className="QuizDetailText">
+          <div className="quiz-detail-text">
             Timer:
             {' '}
             {quiz.timer}
           </div>
         </div>
         <div>
-          <div className="QuizDetailText">
+          <div className="quiz-detail-text">
             Max Limit:
             {' '}
             {quiz.maxLimit}
           </div>
-          <div className="QuizDetailText">
+          <div className="quiz-detail-text">
             Question Count:
             {' '}
             {quiz.noOfQuestions}

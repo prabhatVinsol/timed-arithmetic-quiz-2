@@ -24,13 +24,13 @@ function TimerContainer(props) {
   });
 
   return (
-    <div className="QuizDetail">
-      <div className="QuizTopText">
+    <div className="quiz-detail">
+      <div className="quiz-top-text">
         Question No.-
         {' '}
         {questionNum}
       </div>
-      <div className="QuizTopText">
+      <div className="quiz-top-text">
         Time Left-
         {' '}
         {count}

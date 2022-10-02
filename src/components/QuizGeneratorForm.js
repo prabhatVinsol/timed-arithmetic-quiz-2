@@ -62,53 +62,53 @@ function QuizGeneratorForm(props) {
   const multiplyChecked = operators.indexOf('*') >= 0;
   const divideChecked = operators.indexOf('/') >= 0;
   return (
-    <div className="QuizGeneratorForm">
+    <div className="quiz-generator-form">
       <h2>Quiz Generation</h2>
-      <div className="QGFTop">
+      <div className="qgf-top">
         <div>
-          <div className="QZInput">
+          <div className="qz-input">
             Min Limit
             <input
               type="number"
-              className="Input"
+              className="input"
               value={minLimit}
               onChange={minLimitChangeHandler}
             />
           </div>
-          <div className="QZInput">
+          <div className="qz-input">
             No of Questions
             <input
               type="number"
-              className="Input"
+              className="input"
               value={noOfQuestions}
               onChange={noQuestionHandler}
             />
           </div>
         </div>
         <div>
-          <div className="QZInput">
+          <div className="qz-input">
             Max Limit
             <input
               type="number"
-              className="Input"
+              className="input"
               value={maxLimit}
               onChange={maxLimitHandler}
             />
           </div>
-          <div className="QZInput">
+          <div className="qz-input">
             Timer
             <input
               type="number"
-              className="Input"
+              className="input"
               value={timer}
               onChange={timerHandler}
             />
           </div>
         </div>
       </div>
-      <div className="QGFMid">
+      <div className="qgf-mid">
         Operations:
-        <div className="QGFODiv">
+        <div className="qgfo-div">
           <div>
             +
             <input
@@ -156,7 +156,7 @@ function QuizGeneratorForm(props) {
         </div>
 
       </div>
-      <button className="Submit" type="button" value="Submit" onClick={onSubmit}>Submit</button>
+      <button className="submit" type="button" value="Submit" onClick={onSubmit}>Submit</button>
     </div>
   );
 }

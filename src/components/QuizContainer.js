@@ -5,7 +5,7 @@ import QuizDetail from './QuizDetail';
 function QuizContainer(props) {
   const { quiz } = props;
   return (
-    <div className="QuizContainer">
+    <div className="quiz-container">
       <QuizDetail quiz={quiz} />
       <Quiz quiz={quiz} />
     </div>

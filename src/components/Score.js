@@ -4,7 +4,7 @@ function Score(props) {
   const { answers } = props;
   const correctAnswers = answers.filter((answer) => answer.correct);
   return (
-    <div className="QuizTopText">
+    <div className="quiz-top-text">
       Score --
       {' '}
       {correctAnswers.length}

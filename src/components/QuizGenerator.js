@@ -9,9 +9,9 @@ function QuizGenerator() {
     _updateQuizzes([...quizzes, quiz]);
   };
   return (
-    <div className="QuizGenerator">
+    <div className="quiz-generator">
       <QuizGeneratorForm updateQuizzes={updateQuizzes} currentQuizzesCount={quizzes.length} />
-      <div className="QuizDiv">
+      <div className="quiz-div">
         {quizzes.map((quiz) => <QuizContainer key={quiz.quizId} quiz={quiz} />)}
       </div>
     </div>

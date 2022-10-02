@@ -29,12 +29,12 @@ function QuestionAnswer(props) {
   });
 
   return (
-    <div className="ArithmeticContainer">
+    <div className="arithmetic-container">
       <div>
         {questionInfo.question}
         <input
           type="number"
-          className="Input"
+          className="input"
           value={inputVal}
           onChange={onChangeHandler}
         />
@@ -42,7 +42,7 @@ function QuestionAnswer(props) {
       <div className="ButtonContainer">
         <button
           type="button"
-          className="Next"
+          className="next"
           onClick={loadNextQuestion}
         >
           Next
