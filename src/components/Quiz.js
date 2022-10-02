@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Answers from './Answers';
+import Results from './Answers';
 import { publish } from './Event';
 import QuestionAnswer from './QuestionAnswer';
 import Score from './Score';
@@ -17,35 +17,35 @@ function Quiz(props) {
     }
   };
   const shouldShowQuiz = questionNumber < (Number(quiz.noOfQuestions) + 1);
+  const showFinalResult = !shouldShowQuiz;
   return (
     <div>
       {shouldShowQuiz && (
-        <TimerContainer
-          questionNum={questionNumber}
-          quiz={quiz}
-        />
-      )}
-      {shouldShowQuiz && (
-        <QuestionAnswer
-          questionNum={questionNumber}
-          nextQuestion={nextQuestion}
-          quiz={quiz}
-        />
+        <>
+          <TimerContainer
+            questionNum={questionNumber}
+            quiz={quiz}
+          />
+          <QuestionAnswer
+            questionNum={questionNumber}
+            nextQuestion={nextQuestion}
+            quiz={quiz}
+          />
+        </>
+
       )}
       <Score answers={questions} />
-      {!shouldShowQuiz
+      {showFinalResult
       && (
-        <Answers
-          answers={questions}
-          shouldShowCorrectAnswers
-        />
-      )}
-      {!shouldShowQuiz
-      && (
-        <Answers
-          answers={questions}
-          shouldShowCorrectAnswers={false}
-        />
+        <>
+          <Results
+            answers={questions}
+            shouldShowCorrectAnswers
+          />
+          <Results
+            answers={questions}
+          />
+        </>
       )}
     </div>
   );

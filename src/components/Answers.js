@@ -1,8 +1,6 @@
 import React from 'react';
 
-function Answers(props) {
-  const { answers, shouldShowCorrectAnswers } = props;
-
+function Answers({ answers, shouldShowCorrectAnswers = false }) {
   const getCorrectOrWrongAnswerList = answers.filter((answer) => (
     shouldShowCorrectAnswers === answer.correct));
   return (
