@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Answers({ answers, shouldShowCorrectAnswers = false }) {
-  const getCorrectOrWrongAnswerList = answers.filter((answer) => (
+  const getCorrectOrWrongAnswerInfoList = answers.filter((answer) => (
     shouldShowCorrectAnswers === answer.correct));
   return (
     <div>
@@ -19,27 +19,27 @@ function Answers({ answers, shouldShowCorrectAnswers = false }) {
           </tr>
         </thead>
         <tbody>
-          {getCorrectOrWrongAnswerList.map((filteredAnswer) => (
-            <tr key={filteredAnswer.id}>
+          {getCorrectOrWrongAnswerInfoList.map((answerInfo) => (
+            <tr key={answerInfo.id}>
               <td
                 className="TableHeaderRow"
               >
-                {filteredAnswer.id}
+                {answerInfo.id}
               </td>
               <td
                 className="TableHeaderRow"
               >
-                {filteredAnswer.question}
+                {answerInfo.question}
               </td>
               <td
                 className="TableHeaderRow"
               >
-                {filteredAnswer.givenAnswer === '' ? 'NA' : filteredAnswer.givenAnswer}
+                {answerInfo.givenAnswer || 'NA'}
               </td>
               <td
                 className="TableHeaderRow"
               >
-                {filteredAnswer.answer}
+                {answerInfo.answer}
               </td>
             </tr>
           ))}
